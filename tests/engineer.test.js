@@ -9,7 +9,7 @@ describe("engineer", () => {
     })    
     it('should attach a github', () => {
         const github = 'github'
-        const engineer = new Engineer(github)
+        const engineer = new Engineer("", "", "", github)
 
         expect(engineer.github).toBe(github)
 

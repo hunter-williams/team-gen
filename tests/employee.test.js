@@ -9,7 +9,7 @@ describe("employee", () => {
     })    
     it('should attach a name', () => {
         const name = 'hunter'
-        const employee = new Employee(name)
+        const employee = new Employee("", name, "")
 
         expect(employee.name).toBe(name)
 

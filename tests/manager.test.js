@@ -9,7 +9,7 @@ describe("manager", () => {
     })    
     it('should attach a officeNumber', () => {
         const officeNumber = '420'
-        const manager = new Manager(officeNumber)
+        const manager = new Manager("", "", "", officeNumber)
 
         expect(manager.officeNumber).toBe(officeNumber)
 

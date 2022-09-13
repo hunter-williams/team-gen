@@ -9,7 +9,7 @@ describe("intern", () => {
     })    
     it('should attach a school', () => {
         const school = 'udub'
-        const intern = new Intern(school)
+        const intern = new Intern("", "", "",school)
 
         expect(intern.school).toBe(school)
 
