@@ -4,6 +4,7 @@ const Employee = require('./lib/employee')
 const Manager = require('./lib/manager')
 const Engineer = require('./lib/engineer')
 const Intern = require('./lib/intern')
+const generateHtml = require('./src/generateHtml')
 
 let team = []
 
@@ -59,54 +60,54 @@ const addEmployee = () => {
             name:  'engineerName',
             type: 'input',
             message: 'What is your engineers name?',
-            when: (answers) => answer.employeeType === 'Engineer'
+            when: (answers) => answers.employeeType === 'Engineer'
         },
         {
             name:  'engineerId',
             type: 'input',
             message: 'What is your engineers ID?',
-            when: (answers) => answer.employeeType === 'Engineer'
+            when: (answers) => answers.employeeType === 'Engineer'
         },
         {
             name:  'engineerEmail',
             type: 'input',
             message: 'What is your engineers email?',
-            when: (answers) => answer.employeeType === 'Engineer'
+            when: (answers) => answers.employeeType === 'Engineer'
         },
         {
             name:  'engineerGithub',
             type: 'input',
             message: 'What is your engineers github?',
-            when: (answers) => answer.employeeType === 'Engineer'
+            when: (answers) => answers.employeeType === 'Engineer'
         },
         {
             name:  'internName',
             type: 'input',
             message: 'What is your interns name?',
-            when: (answers) => answer.employeeType === 'Intern'
+            when: (answers) => answers.employeeType === 'Intern'
         },
         {
             name:  'internId',
             type: 'input',
             message: 'What is your interns ID?',
-            when: (answers) => answer.employeeType === 'Intern'
+            when: (answers) => answers.employeeType === 'Intern'
         },
         {
             name:  'internEmail',
             type: 'input',
             message: 'What is your interns email?',
-            when: (answers) => answer.employeeType === 'Intern'
+            when: (answers) => answers.employeeType === 'Intern'
         },
         {
             name:  'internSchool',
             type: 'input',
             message: 'What school does your intern attend?',
-            when: (answers) => answer.employeeType === 'Intern'
+            when: (answers) => answers.employeeType === 'Intern'
         },
     ]) .then(employeeInfo => {
         if(employeeInfo.add && employeeInfo.employeeType === 'Engineer'){
         
-            const { engineerName, engineerId, engineerEmail, engineerGithub } = engineerInfo
+            const { engineerName, engineerId, engineerEmail, engineerGithub } = employeeInfo
 
             const engineer = new Engineer( engineerName, engineerId, engineerEmail, engineerGithub );
 
@@ -117,9 +118,9 @@ const addEmployee = () => {
         }       
          if(employeeInfo.add && employeeInfo.employeeType === 'Intern'){
         
-            const { internName, internId, internEmail, internGithub } = internInfo
+            const { internName, internId, internEmail, internSchool } = employeeInfo
 
-            const intern = new Intern( internName, internId, internEmail, internGithub );
+            const intern = new Intern( internName, internId, internEmail, internSchool );
 
             team.push(intern);
             console.log("new Intern:", intern);
@@ -131,7 +132,8 @@ const addEmployee = () => {
     })  
 };
 const writeFile = team => {
-    const html = generateHtml(team)
+    const html = generateHtml(team);
+    console.log("write file html response", html);
 
     fs.writeFile('./dist/index.html',html,error => {
         if(error){
@@ -143,5 +145,9 @@ const writeFile = team => {
     })
 }
 
-addManager().then(addEmployee()).catch(error => console.log(err)); 
+addManager()
+    .then(addEmployee)
+    .catch(error => {
+        console.log(error)
+    }); 
 
