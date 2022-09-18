@@ -37,8 +37,6 @@ const addManager = () => {
         const manager = new Manager(managerId, managerName, managerEmail, managerOfficeNumber);
 
         team.push(manager);
-        console.log("new Manager:", manager);
-        console.log("team:", team);
     })  
 };
 const addEmployee = () => {
@@ -112,8 +110,6 @@ const addEmployee = () => {
             const engineer = new Engineer(engineerId, engineerName, engineerEmail, engineerGithub );
 
             team.push(engineer);
-            console.log("new Engineer:", engineer);
-            console.log("team:", team);
             addEmployee()
         }       
          if(employeeInfo.add && employeeInfo.employeeType === 'Intern'){
@@ -123,8 +119,6 @@ const addEmployee = () => {
             const intern = new Intern(internId, internName, internEmail, internSchool );
 
             team.push(intern);
-            console.log("new Intern:", intern);
-            console.log("team:", team);
             addEmployee()
         } if(!employeeInfo.add){
             writeFile(team)
