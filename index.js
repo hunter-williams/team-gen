@@ -34,7 +34,7 @@ const addManager = () => {
     ]) .then(managerInfo => {
         const { managerName, managerId, managerEmail, managerOfficeNumber } = managerInfo
 
-        const manager = new Manager(managerName, managerId, managerEmail, managerOfficeNumber);
+        const manager = new Manager(managerId, managerName, managerEmail, managerOfficeNumber);
 
         team.push(manager);
         console.log("new Manager:", manager);
@@ -109,7 +109,7 @@ const addEmployee = () => {
         
             const { engineerName, engineerId, engineerEmail, engineerGithub } = employeeInfo
 
-            const engineer = new Engineer( engineerName, engineerId, engineerEmail, engineerGithub );
+            const engineer = new Engineer(engineerId, engineerName, engineerEmail, engineerGithub );
 
             team.push(engineer);
             console.log("new Engineer:", engineer);
@@ -120,7 +120,7 @@ const addEmployee = () => {
         
             const { internName, internId, internEmail, internSchool } = employeeInfo
 
-            const intern = new Intern( internName, internId, internEmail, internSchool );
+            const intern = new Intern(internId, internName, internEmail, internSchool );
 
             team.push(intern);
             console.log("new Intern:", intern);
