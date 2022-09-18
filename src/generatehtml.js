@@ -1,9 +1,9 @@
 // create Manager/Engineer/Intern card
 const generateManager = function (manager) {
     return `
-    <div class="">
-        <div class=" ">
-            <div class=" ">
+    <div class="container">
+        <div class="card">
+            <div class="title">
                 <h2>Manager</h2>
                 <h3>${manager.name}</h3>
             </div>
@@ -18,9 +18,9 @@ const generateManager = function (manager) {
 }
 const generateEngineer = function (engineer) {
     return `
-    <div class="">
-        <div class=" ">
-            <div class=" ">
+    <div class="container">
+        <div class="card">
+            <div class="title">
                 <h2>engineer</h2>
                 <h3>${engineer.name}</h3>
             </div>
@@ -35,9 +35,9 @@ const generateEngineer = function (engineer) {
 }
 const generateIntern = function (intern) {
     return `
-    <div class="">
-        <div class=" ">
-            <div class=" ">
+    <div class="container">
+        <div class="card">
+            <div class="title">
                 <h2>intern</h2>
                 <h3>${intern.name}</h3>
             </div>
@@ -60,7 +60,7 @@ const generateTeamPage = function (employeeCards) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header>
@@ -69,13 +69,11 @@ const generateTeamPage = function (employeeCards) {
         </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="row justify-content-center" id="employee-cards">
+        <div class="cardsContainer">
                 
             <!-- Employee Cards -->
                 ${employeeCards}
                 
-            </div>
         </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
